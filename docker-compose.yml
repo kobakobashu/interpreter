@@ -1,0 +1,14 @@
+version: "3"
+services: 
+  interpreter:
+    build:
+      context: .
+    command: /sbin/init
+    container_name: interpreter
+    environment:
+      - GOPATH=/go/src
+      - XDG_RUNTIME_DIR=/run/user/0
+    privileged: true
+    tty: true
+    volumes:
+      - ./:/go/src/interpreter
